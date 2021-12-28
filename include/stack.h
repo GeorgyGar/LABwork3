@@ -122,5 +122,5 @@ int Stack<ValType>::StackNum()
 template <class ValType>//очистка стека;
 void Stack<ValType>::StacClean()
 {
-	StackIndex = -1;
+	Size = 0;
 } 
