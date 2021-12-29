@@ -89,5 +89,12 @@ TEST(Stack, can_be_inserted_into_the_full_stack)
 	ASSERT_EQ(4, stack.StackNum());
 }
 
-
-
+TEST(Stack, can_be_inserted_into_the_full_stack)
+{
+	Stack<double> Stack(2);
+	Stack.StackPush(3.2);
+	Stack.StackPush(7.0);
+	Stack.StackPush(1.3);
+	ASSERT_NO_THROW(Stack.StackPush(3.4));
+	ASEERT_EQ(4, Stack.StackNumber());
+}
