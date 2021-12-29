@@ -235,4 +235,40 @@ TEST(arithmetic, example_4)
 }
 
 
+TEST(Arithmetic, Check_brackets_incorrect_2)
+{
+	Arithmetic A("(5*tg[12]-[sin{3))");
+	A.Divide();
+	EXPECT_FALSE(A.check_brackets());
+}
+
+TEST(Arithmetic, Check_brackets_3)
+{
+	Arithmetic A("{sin[5]*sin(3)-ln{2}*(-3)}");
+	A.Divide();
+	EXPECT_TRUE(A.check_brackets());
+}
+
+TEST(Arithmetic, Check_brackets_1)
+{
+	Arithmetic A("{(40-7*[9-2])}");
+	A.Divide();
+	EXPECT_TRUE(A.check_brackets());
+}
+
+TEST(Arithmetic, Check_brackets_2)
+{
+	Arithmetic A("(cos(4)*2-[41-20]*ln{2})");
+	A.Divide();
+	EXPECT_TRUE(A.check_brackets());
+}
+
+TEST(Arithmetic, Check_brackets_incorrect_1)
+{
+	Arithmetic A("{4-8*([12*16]}");
+	A.Divide();
+	EXPECT_FALSE(A.check_brackets());
+}
+
+
 
